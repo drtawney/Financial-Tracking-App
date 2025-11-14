@@ -1,15 +1,46 @@
 import { useState } from "react";
-import { Dashboard } from "./components/Dashboard";
-import { BudgetWheel } from "./components/BudgetWheel";
-import { TransactionList, Transaction } from "./components/TransactionList";
-import { AddTransaction } from "./components/AddTransaction";
-import { BudgetManager } from "./components/BudgetManager";
-import { InventoryManager, InventoryItem } from "./components/InventoryManager";
-import { InventoryPreview } from "./components/InventoryPreview";
-import { TabNavigation } from "./components/TabNavigation";
-import { Button } from "./components/ui/button";
-import { Input } from "./components/ui/input";
-import { Edit, Check, X } from "lucide-react";
+import { Dashboard } from "../components/Dashboard";
+import { BudgetWheel } from "../components/BudgetWheel";
+import { TransactionList } from "../components/TransactionList";
+import { AddTransaction } from "../components/AddTransaction";
+import { BudgetManager } from "../components/BudgetManager";
+import { InventoryManager } from "../components/InventoryManager";
+import { InventoryPreview } from "../components/InventoryPreview";
+import { TabNavigation } from "../components/TabNavigation";
+import { Button } from "../components/ui/button";
+import { Input } from "../components/ui/input";
+import { Edit, Check } from "lucide-react";
+
+interface Transaction {
+  id: string;
+  description: string;
+  amount: number;
+  type: 'income' | 'expense';
+  category: string;
+  date: string;
+}
+
+interface BudgetCategory {
+  id: string;
+  name: string;
+  budgetAmount: number;
+  color: string;
+  type?: 'income' | 'expense';
+}
+
+interface InventoryItem {
+  id: string;
+  name: string;
+  status: string;
+  dateBought: string;
+  dateSold?: string;
+  mileage: number;
+  notes: string;
+  locationBought: string;
+  locationSold?: string;
+  purchasePrice: number;
+  sellPrice?: number;
+}
 
 // Mock data for demonstration
 const initialTransactions: Transaction[] = [
@@ -54,14 +85,6 @@ const initialTransactions: Transaction[] = [
     date: "2025-09-05"
   }
 ];
-
-interface BudgetCategory {
-  id: string;
-  name: string;
-  budgetAmount: number;
-  color: string;
-  type?: 'income' | 'expense';
-}
 
 const initialBudgetCategories: BudgetCategory[] = [
   { id: '1', name: 'Equipment', budgetAmount: 2000, color: '#ff6b6b', type: 'expense' },
@@ -111,7 +134,7 @@ const initialInventoryItems: InventoryItem[] = [
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [transactions, setTransactions] = useState<Transaction[]>(initialTransactions);
-  const [selectedMonth, setSelectedMonth] = useState('2025-10');
+  const [selectedMonth] = useState('2025-10');
   const [budgetCategories, setBudgetCategories] = useState<BudgetCategory[]>(initialBudgetCategories);
   const [inventoryItems, setInventoryItems] = useState<InventoryItem[]>(initialInventoryItems);
   const [businessName, setBusinessName] = useState('Financial Tracker');
@@ -123,14 +146,13 @@ export default function App() {
       id: Date.now().toString()
     };
     setTransactions(prev => [transaction, ...prev]);
-    setActiveTab('dashboard'); // Navigate back to dashboard after adding
+    setActiveTab('dashboard');
   };
 
   const handleDeleteTransaction = (id: string) => {
     setTransactions(prev => prev.filter(t => t.id !== id));
   };
 
-  // Calculate dashboard metrics (using all-time totals)
   const totalIncome = transactions
     .filter(t => t.type === 'income')
     .reduce((sum, t) => sum + t.amount, 0);
@@ -154,7 +176,6 @@ export default function App() {
                 <div className="flex items-center justify-between">
                   {isEditingBusinessName ? (
                     <div className="flex items-center gap-2 flex-1">
-
                       <Input
                         value={businessName}
                         onChange={(e) => setBusinessName(e.target.value)}
@@ -219,7 +240,6 @@ export default function App() {
               onAddTransaction={handleAddTransaction}
               transactions={transactions}
               budgetCategories={budgetCategories}
-              selectedMonth={selectedMonth}
             />
           </div>
         );
@@ -251,7 +271,6 @@ export default function App() {
             <BudgetManager 
               transactions={transactions}
               selectedMonth={selectedMonth}
-              onMonthChange={setSelectedMonth}
               budgetCategories={budgetCategories}
               onUpdateBudgetCategories={setBudgetCategories}
             />
@@ -278,7 +297,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white' }}>
       {renderTabContent()}
       <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
     </div>
