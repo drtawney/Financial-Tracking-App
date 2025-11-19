@@ -1,9 +1,19 @@
+/**
+ * components/ui/badge.tsx
+ *
+ * Badge component with multiple variants for displaying labels and tags.
+ */
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot@1.1.2";
 import { cva, type VariantProps } from "class-variance-authority@0.7.1";
 
 import { cn } from "./utils";
 
+/**
+ * badgeVariants
+ *
+ * Utility for generating badge class names based on variant.
+ */
 const badgeVariants = cva(
   "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden",
   {
@@ -25,6 +35,11 @@ const badgeVariants = cva(
   },
 );
 
+/**
+ * Badge
+ *
+ * Displays a styled badge or tag. Can render as a span or as a child element via `asChild` prop.
+ */
 function Badge({
   className,
   variant,

@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/radio-group.tsx
+ *
+ * Radio group component using Radix UI primitives.
+ */
 "use client";
 
 import * as React from "react";
@@ -6,6 +11,13 @@ import { CircleIcon } from "lucide-react";
 
 import { cn } from "./utils";
 
+/**
+ * RadioGroup
+ *
+ * Root container for radio button options.
+ * @param className - Optional class name
+ * @param props - Standard Radix RadioGroup Root props
+ */
 function RadioGroup({
   className,
   ...props
@@ -19,6 +31,13 @@ function RadioGroup({
   );
 }
 
+/**
+ * RadioGroupItem
+ *
+ * Individual radio button option.
+ * @param className - Optional class name
+ * @param props - Standard Radix RadioGroup Item props
+ */
 function RadioGroupItem({
   className,
   ...props

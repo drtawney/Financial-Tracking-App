@@ -1,3 +1,8 @@
+/**
+ * components/ui/radio-group.tsx
+ *
+ * Radio group component using Radix UI primitives.
+ */
 "use client";
 
 import * as React from "react";
@@ -6,6 +11,11 @@ import { CircleIcon } from "lucide-react@0.487.0";
 
 import { cn } from "./utils";
 
+/**
+ * RadioGroup
+ *
+ * Root container for radio button options.
+ */
 function RadioGroup({
   className,
   ...props
@@ -19,6 +29,11 @@ function RadioGroup({
   );
 }
 
+/**
+ * RadioGroupItem
+ *
+ * Individual radio button option.
+ */
 function RadioGroupItem({
   className,
   ...props

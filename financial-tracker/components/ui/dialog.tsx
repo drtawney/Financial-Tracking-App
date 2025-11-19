@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/dialog.tsx
+ *
+ * Dialog component suite using Radix UI primitives for modals and overlays.
+ */
 "use client";
 
 import * as React from "react";
@@ -9,13 +14,19 @@ import { cn } from "./utils";
 function Dialog({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Root>) {
+  /**
+   * Dialog
+   *
+   * Root dialog container.
+   * @param props - Standard Radix Dialog Root props
+   */
   return <DialogPrimitive.Root data-slot="dialog" {...props} />;
 }
 
 const DialogTrigger = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Trigger>
->((props, ref) => (
+>(({ className, ...props }, ref) => (
   <DialogPrimitive.Trigger ref={ref} data-slot="dialog-trigger" {...props} />
 ));
 
@@ -24,12 +35,24 @@ DialogTrigger.displayName = "DialogTrigger";
 function DialogPortal({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Portal>) {
+  /**
+   * DialogPortal
+   *
+   * Portal for rendering dialog content outside the DOM tree.
+   * @param props - Standard Radix Dialog Portal props
+   */
   return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
 }
 
 function DialogClose({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Close>) {
+  /**
+   * DialogClose
+   *
+   * Button to close the dialog.
+   * @param props - Standard Radix Dialog Close props
+   */
   return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
 }
 
@@ -74,6 +97,11 @@ const DialogContent = React.forwardRef<
   </DialogPortal>
 ));
 
+/**
+ * DialogContent
+ *
+ * Main content area of the dialog with overlay and close button.
+ */
 DialogContent.displayName = "DialogContent";
 
 function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {

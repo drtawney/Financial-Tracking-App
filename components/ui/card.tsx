@@ -1,7 +1,18 @@
+/**
+ * components/ui/card.tsx
+ *
+ * Card component suite for layout: Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent, CardFooter.
+ * Provides styled containers for grouping content in the UI.
+ */
 import * as React from "react";
 
 import { cn } from "./utils";
 
+/**
+ * Card
+ *
+ * Main card container for grouping content.
+ */
 function Card({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -15,6 +26,11 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * CardHeader
+ *
+ * Header section of the card, typically for titles or actions.
+ */
 function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -28,6 +44,11 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * CardTitle
+ *
+ * Title element for the card header.
+ */
 function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <h4
@@ -38,6 +59,11 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * CardDescription
+ *
+ * Description or subtitle for the card header.
+ */
 function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <p
@@ -48,6 +74,11 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * CardAction
+ *
+ * Action area for the card header (e.g., buttons).
+ */
 function CardAction({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -61,6 +92,11 @@ function CardAction({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * CardContent
+ *
+ * Main content area of the card.
+ */
 function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -71,6 +107,11 @@ function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * CardFooter
+ *
+ * Footer section of the card, typically for actions or summary info.
+ */
 function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div

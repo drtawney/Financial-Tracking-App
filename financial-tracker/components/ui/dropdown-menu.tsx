@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/dropdown-menu.tsx
+ *
+ * Dropdown menu component suite using Radix UI primitives.
+ */
 "use client";
 
 import * as React from "react";
@@ -6,12 +11,24 @@ import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
 
 import { cn } from "./utils";
 
+/**
+ * DropdownMenu
+ *
+ * Root dropdown menu container.
+ * @param props - Standard Radix DropdownMenu Root props
+ */
 function DropdownMenu({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
 }
 
+/**
+ * DropdownMenuPortal
+ *
+ * Portal for rendering dropdown content outside the DOM tree.
+ * @param props - Standard Radix DropdownMenu Portal props
+ */
 function DropdownMenuPortal({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>) {
@@ -20,6 +37,12 @@ function DropdownMenuPortal({
   );
 }
 
+/**
+ * DropdownMenuTrigger
+ *
+ * Element that triggers the dropdown to open.
+ * @param props - Standard Radix DropdownMenu Trigger props
+ */
 function DropdownMenuTrigger({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {

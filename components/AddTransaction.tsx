@@ -1,3 +1,10 @@
+/**
+ * components/AddTransaction.tsx
+ *
+ * A form component used to create and submit new transactions. Supports
+ * income and expense types and warns when an expense will exceed the
+ * configured budget for a selected category.
+ */
 import { useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Input } from "./ui/input";
@@ -24,10 +31,20 @@ interface AddTransactionProps {
 }
 
 // Single income category - no selection needed
+/** Default category label used for income transactions. */
 const DEFAULT_INCOME_CATEGORY = "Business Income";
 
 // Removed defaultExpenseCategories - only using budget categories for expenses
 
+/**
+ * AddTransaction
+ *
+ * Renders the transaction entry form and handles validation, budget checks,
+ * and submission.
+ * @param props.onAddTransaction - callback to add a transaction to parent state
+ * @param props.transactions - list of existing transactions used for budget checks
+ * @param props.budgetCategories - list of budget categories for selection and limits
+ */
 export function AddTransaction({ onAddTransaction, transactions, budgetCategories }: AddTransactionProps) {
   const [formData, setFormData] = useState({
     description: "",
@@ -44,6 +61,14 @@ export function AddTransaction({ onAddTransaction, transactions, budgetCategorie
     budgetAmount: number;
   } | null>(null);
 
+  /**
+   * checkBudgetLimit
+   *
+   * Determine whether adding `amount` to the `category` for the given
+   * `transactionDate` month will exceed the configured budget for that category.
+   * Returns `true` if it would exceed the budget and sets state for the
+   * budget warning display.
+   */
   const checkBudgetLimit = (amount: number, category: string, transactionDate: string) => {
     if (!category || amount <= 0) return false;
 
@@ -76,6 +101,12 @@ export function AddTransaction({ onAddTransaction, transactions, budgetCategorie
     return false;
   };
 
+  /**
+   * handleSubmit
+   *
+   * Form submit handler that validates fields, checks budgets for
+   * expenses and either shows a warning dialog or proceeds to submit.
+   */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -96,6 +127,12 @@ export function AddTransaction({ onAddTransaction, transactions, budgetCategorie
     submitTransaction();
   };
 
+  /**
+   * submitTransaction
+   *
+   * Build the transaction payload (generates an `id`), call the parent
+   * `onAddTransaction` callback and reset the form state.
+   */
   const submitTransaction = () => {
     const transaction: Omit<Transaction, 'id'> = {
       description: formData.description,

@@ -1,9 +1,20 @@
+/**
+ * financial-tracker/components/ui/button.tsx
+ *
+ * Button component with multiple variants and sizes, using class-variance-authority for styling.
+ * Supports rendering as a native button or as a child component via `asChild` prop.
+ */
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "./utils";
 
+/**
+ * buttonVariants
+ *
+ * Utility for generating button class names based on variant and size.
+ */
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
@@ -34,6 +45,16 @@ const buttonVariants = cva(
   },
 );
 
+/**
+ * Button
+ *
+ * A styled button component supporting variants and sizes. Can render as a native button or as a child element.
+ * @param className - Optional class name
+ * @param variant - Button variant
+ * @param size - Button size
+ * @param asChild - Render as child element
+ * @param props - Standard button element props
+ */
 const Button = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<"button"> &

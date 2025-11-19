@@ -1,3 +1,10 @@
+/**
+ * components/TabNavigation.tsx
+ *
+ * Bottom tab navigation used across the app to switch between main views
+ * such as Dashboard, Add Transaction, Transactions history, Budget and
+ * Inventory.
+ */
 import { Target, Home, Plus, List, Package } from "lucide-react";
 
 interface TabNavigationProps {
@@ -5,6 +12,12 @@ interface TabNavigationProps {
   onTabChange: (tab: string) => void;
 }
 
+/**
+ * TabNavigation
+ *
+ * Renders the bottom fixed tab bar. Calls `onTabChange` when a tab is
+ * selected.
+ */
 export function TabNavigation({ activeTab, onTabChange }: TabNavigationProps) {
   const tabs = [
     { id: 'dashboard', label: 'Dashboard', icon: Home },

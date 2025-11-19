@@ -1,3 +1,8 @@
+/**
+ * components/ui/alert-dialog.tsx
+ *
+ * Alert dialog component suite using Radix UI primitives for confirmations and warnings.
+ */
 "use client";
 
 import * as React from "react";
@@ -6,12 +11,22 @@ import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog@1.1.6";
 import { cn } from "./utils";
 import { buttonVariants } from "./button";
 
+/**
+ * AlertDialog
+ *
+ * Root alert dialog container.
+ */
 function AlertDialog({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Root>) {
   return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />;
 }
 
+/**
+ * AlertDialogTrigger
+ *
+ * Element that triggers the alert dialog to open.
+ */
 function AlertDialogTrigger({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Trigger>) {
@@ -20,6 +35,11 @@ function AlertDialogTrigger({
   );
 }
 
+/**
+ * AlertDialogPortal
+ *
+ * Portal for rendering alert dialog outside the DOM tree.
+ */
 function AlertDialogPortal({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Portal>) {

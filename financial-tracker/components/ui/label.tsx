@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/label.tsx
+ *
+ * Label component using Radix UI primitives for form inputs.
+ */
 "use client";
 
 import * as React from "react";
@@ -5,6 +10,13 @@ import * as LabelPrimitive from "@radix-ui/react-label";
 
 import { cn } from "./utils";
 
+/**
+ * Label
+ *
+ * Styled label for form inputs.
+ * @param className - Optional class name
+ * @param props - Standard Radix Label props
+ */
 function Label({
   className,
   ...props

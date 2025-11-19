@@ -1,3 +1,8 @@
+/**
+ * components/ui/popover.tsx
+ *
+ * Popover component using Radix UI primitives for floating content.
+ */
 "use client";
 
 import * as React from "react";
@@ -5,18 +10,33 @@ import * as PopoverPrimitive from "@radix-ui/react-popover@1.1.6";
 
 import { cn } from "./utils";
 
+/**
+ * Popover
+ *
+ * Root popover container.
+ */
 function Popover({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Root>) {
   return <PopoverPrimitive.Root data-slot="popover" {...props} />;
 }
 
+/**
+ * PopoverTrigger
+ *
+ * Element that triggers the popover to open.
+ */
 function PopoverTrigger({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Trigger>) {
   return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />;
 }
 
+/**
+ * PopoverContent
+ *
+ * Floating content panel for the popover.
+ */
 function PopoverContent({
   className,
   align = "center",
@@ -39,6 +59,11 @@ function PopoverContent({
   );
 }
 
+/**
+ * PopoverAnchor
+ *
+ * Anchor element for positioning the popover.
+ */
 function PopoverAnchor({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Anchor>) {

@@ -1,3 +1,8 @@
+/**
+ * components/ui/tabs.tsx
+ *
+ * Tabs component suite using Radix UI primitives for tabbed content.
+ */
 "use client";
 
 import * as React from "react";
@@ -5,6 +10,11 @@ import * as TabsPrimitive from "@radix-ui/react-tabs@1.1.3";
 
 import { cn } from "./utils";
 
+/**
+ * Tabs
+ *
+ * Root container for a tabbed interface.
+ */
 function Tabs({
   className,
   ...props
@@ -18,6 +28,11 @@ function Tabs({
   );
 }
 
+/**
+ * TabsList
+ *
+ * Container for tab triggers.
+ */
 function TabsList({
   className,
   ...props
@@ -34,6 +49,11 @@ function TabsList({
   );
 }
 
+/**
+ * TabsTrigger
+ *
+ * Button for switching between tabs.
+ */
 function TabsTrigger({
   className,
   ...props
@@ -50,6 +70,11 @@ function TabsTrigger({
   );
 }
 
+/**
+ * TabsContent
+ *
+ * Content panel for a tab.
+ */
 function TabsContent({
   className,
   ...props

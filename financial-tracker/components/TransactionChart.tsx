@@ -1,3 +1,9 @@
+/**
+ * financial-tracker/components/TransactionChart.tsx
+ *
+ * Visualization component rendering a monthly bar chart for income vs
+ * expenses and a pie chart breakdown of expense categories using recharts.
+ */
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
 import type { Transaction } from "./TransactionList";
@@ -6,6 +12,14 @@ interface TransactionChartProps {
   transactions: Transaction[];
 }
 
+/**
+ * TransactionChart
+ *
+ * Builds derived `barData` and `pieData` from `transactions` and renders
+ * charts. This is a pure presentational component and does not mutate
+ * application state.
+ * @param transactions - List of transactions to visualize
+ */
 export function TransactionChart({ transactions }: TransactionChartProps) {
   // Calculate monthly data for bar chart
   const monthlyData = transactions.reduce((acc, transaction) => {

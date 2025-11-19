@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/sidebar.tsx
+ *
+ * Sidebar component system for navigation, supporting mobile and desktop layouts.
+ */
 "use client";
 
 import * as React from "react";
@@ -44,15 +49,32 @@ type SidebarContextProps = {
 
 const SidebarContext = React.createContext<SidebarContextProps | null>(null);
 
+/**
+ * useSidebar
+ *
+ * Custom hook to access sidebar context.
+ * @returns Sidebar context value
+ */
 function useSidebar() {
   const context = React.useContext(SidebarContext);
   if (!context) {
     throw new Error("useSidebar must be used within a SidebarProvider.");
   }
-
   return context;
 }
 
+/**
+ * SidebarProvider
+ *
+ * Provides sidebar context to child components.
+ * @param defaultOpen - Whether sidebar is open by default
+ * @param open - Controlled open state
+ * @param onOpenChange - Callback for open state change
+ * @param className - Optional class name
+ * @param style - Optional style
+ * @param children - Child components
+ * @param props - Standard div props
+ */
 function SidebarProvider({
   defaultOpen = true,
   open: openProp,
@@ -151,6 +173,17 @@ function SidebarProvider({
   );
 }
 
+/**
+ * Sidebar
+ *
+ * Main sidebar component for navigation, supports mobile and desktop.
+ * @param side - Sidebar side (left/right)
+ * @param variant - Sidebar style variant
+ * @param collapsible - Collapsible mode
+ * @param className - Optional class name
+ * @param children - Sidebar content
+ * @param props - Standard div props
+ */
 function Sidebar({
   side = "left",
   variant = "sidebar",
@@ -253,6 +286,14 @@ function Sidebar({
   );
 }
 
+/**
+ * SidebarTrigger
+ *
+ * Button to toggle the sidebar open/closed.
+ * @param className - Optional class name
+ * @param onClick - Click handler
+ * @param props - Button props
+ */
 function SidebarTrigger({
   className,
   onClick,
@@ -279,6 +320,13 @@ function SidebarTrigger({
   );
 }
 
+/**
+ * SidebarRail
+ *
+ * Clickable rail to toggle sidebar, shown on desktop.
+ * @param className - Optional class name
+ * @param props - Button props
+ */
 function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
   const { toggleSidebar } = useSidebar();
 
@@ -304,6 +352,13 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
   );
 }
 
+/**
+ * SidebarInset
+ *
+ * Main content area when using an inset sidebar.
+ * @param className - Optional class name
+ * @param props - Main props
+ */
 function SidebarInset({ className, ...props }: React.ComponentProps<"main">) {
   return (
     <main
@@ -318,6 +373,13 @@ function SidebarInset({ className, ...props }: React.ComponentProps<"main">) {
   );
 }
 
+/**
+ * SidebarInput
+ *
+ * Input field styled for sidebar use.
+ * @param className - Optional class name
+ * @param props - Input props
+ */
 function SidebarInput({
   className,
   ...props
@@ -332,6 +394,13 @@ function SidebarInput({
   );
 }
 
+/**
+ * SidebarHeader
+ *
+ * Header section for the sidebar.
+ * @param className - Optional class name
+ * @param props - Div props
+ */
 function SidebarHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -343,6 +412,13 @@ function SidebarHeader({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * SidebarFooter
+ *
+ * Footer section for the sidebar.
+ * @param className - Optional class name
+ * @param props - Div props
+ */
 function SidebarFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -354,6 +430,13 @@ function SidebarFooter({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * SidebarSeparator
+ *
+ * Visual separator for sidebar sections.
+ * @param className - Optional class name
+ * @param props - Separator props
+ */
 function SidebarSeparator({
   className,
   ...props
@@ -368,6 +451,13 @@ function SidebarSeparator({
   );
 }
 
+/**
+ * SidebarContent
+ *
+ * Main content area inside the sidebar.
+ * @param className - Optional class name
+ * @param props - Div props
+ */
 function SidebarContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -382,6 +472,13 @@ function SidebarContent({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * SidebarGroup
+ *
+ * Group container for sidebar items.
+ * @param className - Optional class name
+ * @param props - Div props
+ */
 function SidebarGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -393,6 +490,14 @@ function SidebarGroup({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * SidebarGroupLabel
+ *
+ * Label for a sidebar group.
+ * @param className - Optional class name
+ * @param asChild - Render as child element
+ * @param props - Div props
+ */
 function SidebarGroupLabel({
   className,
   asChild = false,
@@ -414,6 +519,14 @@ function SidebarGroupLabel({
   );
 }
 
+/**
+ * SidebarGroupAction
+ *
+ * Action button for a sidebar group.
+ * @param className - Optional class name
+ * @param asChild - Render as child element
+ * @param props - Button props
+ */
 function SidebarGroupAction({
   className,
   asChild = false,
@@ -437,6 +550,13 @@ function SidebarGroupAction({
   );
 }
 
+/**
+ * SidebarGroupContent
+ *
+ * Content area for a sidebar group.
+ * @param className - Optional class name
+ * @param props - Div props
+ */
 function SidebarGroupContent({
   className,
   ...props
@@ -451,6 +571,13 @@ function SidebarGroupContent({
   );
 }
 
+/**
+ * SidebarMenu
+ *
+ * List container for sidebar menu items.
+ * @param className - Optional class name
+ * @param props - Ul props
+ */
 function SidebarMenu({ className, ...props }: React.ComponentProps<"ul">) {
   return (
     <ul
@@ -462,6 +589,13 @@ function SidebarMenu({ className, ...props }: React.ComponentProps<"ul">) {
   );
 }
 
+/**
+ * SidebarMenuItem
+ *
+ * List item for a sidebar menu entry.
+ * @param className - Optional class name
+ * @param props - Li props
+ */
 function SidebarMenuItem({ className, ...props }: React.ComponentProps<"li">) {
   return (
     <li
@@ -495,6 +629,18 @@ const sidebarMenuButtonVariants = cva(
   },
 );
 
+/**
+ * SidebarMenuButton
+ *
+ * Button for a sidebar menu item, with optional tooltip.
+ * @param asChild - Render as child element
+ * @param isActive - Whether the menu item is active
+ * @param variant - Button variant
+ * @param size - Button size
+ * @param tooltip - Tooltip content
+ * @param className - Optional class name
+ * @param props - Button props
+ */
 function SidebarMenuButton({
   asChild = false,
   isActive = false,
@@ -545,6 +691,15 @@ function SidebarMenuButton({
   );
 }
 
+/**
+ * SidebarMenuAction
+ *
+ * Action button for a sidebar menu item.
+ * @param className - Optional class name
+ * @param asChild - Render as child element
+ * @param showOnHover - Show only on hover
+ * @param props - Button props
+ */
 function SidebarMenuAction({
   className,
   asChild = false,
@@ -577,6 +732,13 @@ function SidebarMenuAction({
   );
 }
 
+/**
+ * SidebarMenuBadge
+ *
+ * Badge for sidebar menu items (e.g., notifications).
+ * @param className - Optional class name
+ * @param props - Div props
+ */
 function SidebarMenuBadge({
   className,
   ...props
@@ -599,6 +761,14 @@ function SidebarMenuBadge({
   );
 }
 
+/**
+ * SidebarMenuSkeleton
+ *
+ * Skeleton loader for sidebar menu items.
+ * @param className - Optional class name
+ * @param showIcon - Whether to show an icon placeholder
+ * @param props - Div props
+ */
 function SidebarMenuSkeleton({
   className,
   showIcon = false,
@@ -637,6 +807,13 @@ function SidebarMenuSkeleton({
   );
 }
 
+/**
+ * SidebarMenuSub
+ *
+ * List container for sidebar submenu items.
+ * @param className - Optional class name
+ * @param props - Ul props
+ */
 function SidebarMenuSub({ className, ...props }: React.ComponentProps<"ul">) {
   return (
     <ul
@@ -652,6 +829,13 @@ function SidebarMenuSub({ className, ...props }: React.ComponentProps<"ul">) {
   );
 }
 
+/**
+ * SidebarMenuSubItem
+ *
+ * List item for a sidebar submenu entry.
+ * @param className - Optional class name
+ * @param props - Li props
+ */
 function SidebarMenuSubItem({
   className,
   ...props
@@ -666,6 +850,16 @@ function SidebarMenuSubItem({
   );
 }
 
+/**
+ * SidebarMenuSubButton
+ *
+ * Button for a sidebar submenu item.
+ * @param asChild - Render as child element
+ * @param size - Button size
+ * @param isActive - Whether the submenu item is active
+ * @param className - Optional class name
+ * @param props - Anchor props
+ */
 function SidebarMenuSubButton({
   asChild = false,
   size = "md",

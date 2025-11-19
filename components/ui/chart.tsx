@@ -1,3 +1,8 @@
+/**
+ * components/ui/chart.tsx
+ *
+ * Chart wrapper and utilities for recharts integration with theme support.
+ */
 "use client";
 
 import * as React from "react";
@@ -5,6 +10,11 @@ import * as RechartsPrimitive from "recharts@2.15.2";
 
 import { cn } from "./utils";
 
+/**
+ * THEMES
+ *
+ * Maps theme names to CSS selectors for dark/light mode support.
+ */
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: "", dark: ".dark" } as const;
 
@@ -24,6 +34,11 @@ type ChartContextProps = {
 
 const ChartContext = React.createContext<ChartContextProps | null>(null);
 
+/**
+ * useChart
+ *
+ * Hook to access the current chart configuration context.
+ */
 function useChart() {
   const context = React.useContext(ChartContext);
 
@@ -34,6 +49,11 @@ function useChart() {
   return context;
 }
 
+/**
+ * ChartContainer
+ *
+ * Wrapper for recharts ResponsiveContainer with theme support and styling.
+ */
 function ChartContainer({
   id,
   className,

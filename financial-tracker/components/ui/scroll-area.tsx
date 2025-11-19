@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/scroll-area.tsx
+ *
+ * Scroll area component using Radix UI primitives for custom scrollbars.
+ */
 "use client";
 
 import * as React from "react";
@@ -5,6 +10,14 @@ import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
 
 import { cn } from "./utils";
 
+/**
+ * ScrollArea
+ *
+ * Root container for a custom scroll area.
+ * @param className - Optional class name
+ * @param children - Scrollable content
+ * @param props - Standard Radix ScrollArea Root props
+ */
 function ScrollArea({
   className,
   children,
@@ -28,6 +41,14 @@ function ScrollArea({
   );
 }
 
+/**
+ * ScrollBar
+ *
+ * Custom scrollbar for the scroll area.
+ * @param className - Optional class name
+ * @param orientation - Scrollbar orientation (vertical/horizontal)
+ * @param props - Standard Radix ScrollArea Scrollbar props
+ */
 function ScrollBar({
   className,
   orientation = "vertical",

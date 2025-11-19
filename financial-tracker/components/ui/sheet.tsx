@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/sheet.tsx
+ *
+ * Sheet (drawer/dialog) component using Radix UI primitives.
+ */
 "use client";
 
 import * as React from "react";
@@ -6,28 +11,59 @@ import { XIcon } from "lucide-react";
 
 import { cn } from "./utils";
 
+/**
+ * Sheet
+ *
+ * Root container for the sheet dialog/drawer.
+ * @param props - Standard Radix Sheet Root props
+ */
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />;
 }
 
+/**
+ * SheetTrigger
+ *
+ * Button to open the sheet.
+ * @param props - Standard Radix Sheet Trigger props
+ */
 function SheetTrigger({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
   return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />;
 }
 
+/**
+ * SheetClose
+ *
+ * Button to close the sheet.
+ * @param props - Standard Radix Sheet Close props
+ */
 function SheetClose({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Close>) {
   return <SheetPrimitive.Close data-slot="sheet-close" {...props} />;
 }
 
+/**
+ * SheetPortal
+ *
+ * Portal for rendering sheet content outside the DOM hierarchy.
+ * @param props - Standard Radix Sheet Portal props
+ */
 function SheetPortal({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Portal>) {
   return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />;
 }
 
+/**
+ * SheetOverlay
+ *
+ * Overlay background for the sheet.
+ * @param className - Optional class name
+ * @param props - Standard Radix Sheet Overlay props
+ */
 function SheetOverlay({
   className,
   ...props
@@ -44,6 +80,15 @@ function SheetOverlay({
   );
 }
 
+/**
+ * SheetContent
+ *
+ * Main content area of the sheet.
+ * @param className - Optional class name
+ * @param children - Content inside the sheet
+ * @param side - Side from which the sheet appears
+ * @param props - Standard Radix Sheet Content props
+ */
 function SheetContent({
   className,
   children,
@@ -81,6 +126,13 @@ function SheetContent({
   );
 }
 
+/**
+ * SheetHeader
+ *
+ * Header section of the sheet.
+ * @param className - Optional class name
+ * @param props - Standard div props
+ */
 function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -91,6 +143,13 @@ function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * SheetFooter
+ *
+ * Footer section of the sheet.
+ * @param className - Optional class name
+ * @param props - Standard div props
+ */
 function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -101,6 +160,13 @@ function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * SheetTitle
+ *
+ * Title for the sheet dialog.
+ * @param className - Optional class name
+ * @param props - Standard Radix Sheet Title props
+ */
 function SheetTitle({
   className,
   ...props
@@ -114,6 +180,13 @@ function SheetTitle({
   );
 }
 
+/**
+ * SheetDescription
+ *
+ * Description text for the sheet dialog.
+ * @param className - Optional class name
+ * @param props - Standard Radix Sheet Description props
+ */
 function SheetDescription({
   className,
   ...props

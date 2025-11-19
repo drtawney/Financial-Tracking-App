@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/popover.tsx
+ *
+ * Popover component using Radix UI primitives for floating content.
+ */
 "use client";
 
 import * as React from "react";
@@ -5,18 +10,39 @@ import * as PopoverPrimitive from "@radix-ui/react-popover";
 
 import { cn } from "./utils";
 
+/**
+ * Popover
+ *
+ * Root popover container.
+ * @param props - Standard Radix Popover Root props
+ */
 function Popover({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Root>) {
   return <PopoverPrimitive.Root data-slot="popover" {...props} />;
 }
 
+/**
+ * PopoverTrigger
+ *
+ * Element that triggers the popover to open.
+ * @param props - Standard Radix Popover Trigger props
+ */
 function PopoverTrigger({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Trigger>) {
   return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />;
 }
 
+/**
+ * PopoverContent
+ *
+ * Floating content panel for the popover.
+ * @param className - Optional class name
+ * @param align - Alignment of the popover
+ * @param sideOffset - Offset from the trigger
+ * @param props - Standard Radix Popover Content props
+ */
 function PopoverContent({
   className,
   align = "center",
@@ -39,6 +65,12 @@ function PopoverContent({
   );
 }
 
+/**
+ * PopoverAnchor
+ *
+ * Anchor element for positioning the popover.
+ * @param props - Standard Radix Popover Anchor props
+ */
 function PopoverAnchor({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Anchor>) {

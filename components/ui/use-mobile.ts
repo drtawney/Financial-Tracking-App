@@ -1,7 +1,22 @@
+/**
+ * components/ui/use-mobile.ts
+ *
+ * Hook for detecting mobile viewport size using media queries.
+ */
 import * as React from "react";
 
+/**
+ * MOBILE_BREAKPOINT
+ *
+ * Breakpoint in pixels to determine mobile vs desktop viewport.
+ */
 const MOBILE_BREAKPOINT = 768;
 
+/**
+ * useIsMobile
+ *
+ * Hook that returns true if the viewport width is below the mobile breakpoint.
+ */
 export function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState<boolean | undefined>(
     undefined,

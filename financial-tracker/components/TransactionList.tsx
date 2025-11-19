@@ -1,3 +1,10 @@
+/**
+ * financial-tracker/components/TransactionList.tsx
+ *
+ * Displays a list of transactions with optional controls for deleting and
+ * exporting. Provides a simple XML export via email and an optional
+ * per-transaction delete dialog.
+ */
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
@@ -22,6 +29,16 @@ interface TransactionListProps {
   showExportButton?: boolean;
 }
 
+/**
+ * TransactionList
+ *
+ * Renders a list of transactions with optional delete and export controls.
+ * @param transactions - List of transactions to display
+ * @param title - Optional title for the list
+ * @param onDeleteTransaction - Optional callback to delete a transaction
+ * @param showDeleteButton - Whether to show delete buttons
+ * @param showExportButton - Whether to show export button
+ */
 export function TransactionList({ 
   transactions, 
   title = "Recent Transactions", 
@@ -31,6 +48,13 @@ export function TransactionList({
 }: TransactionListProps) {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState<string | null>(null);
 
+  /**
+   * handleExportTransactions
+   *
+   * Build a simple XML representation of the current `transactions` and
+   * open the user's mail client with the XML attached in the email body
+   * using a `mailto:` link.
+   */
   const handleExportTransactions = () => {
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <transactions_export>

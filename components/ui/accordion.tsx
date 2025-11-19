@@ -1,3 +1,9 @@
+
+/**
+ * components/ui/accordion.tsx
+ *
+ * Accordion component suite using Radix UI primitives. Includes Accordion, AccordionItem, AccordionTrigger, AccordionContent.
+ */
 "use client";
 
 import * as React from "react";
@@ -6,12 +12,22 @@ import { ChevronDownIcon } from "lucide-react@0.487.0";
 
 import { cn } from "./utils";
 
+/**
+ * Accordion
+ *
+ * Root accordion container using Radix UI.
+ */
 function Accordion({
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Root>) {
   return <AccordionPrimitive.Root data-slot="accordion" {...props} />;
 }
 
+/**
+ * AccordionItem
+ *
+ * Single item in the accordion, wraps content and trigger.
+ */
 function AccordionItem({
   className,
   ...props
@@ -25,6 +41,11 @@ function AccordionItem({
   );
 }
 
+/**
+ * AccordionTrigger
+ *
+ * Button to expand/collapse an accordion item.
+ */
 function AccordionTrigger({
   className,
   children,
@@ -47,6 +68,11 @@ function AccordionTrigger({
   );
 }
 
+/**
+ * AccordionContent
+ *
+ * Content area revealed when the item is expanded.
+ */
 function AccordionContent({
   className,
   children,

@@ -1,3 +1,9 @@
+/**
+ * components/BudgetWheel.tsx
+ *
+ * Visual overview component showing budget usage as a circular "wheel"
+ * along with basic income, budget and expense statistics.
+ */
 import {
   Card,
   CardContent,
@@ -13,6 +19,12 @@ interface BudgetWheelProps {
   totalExpenses: number;
 }
 
+/**
+ * BudgetWheel
+ *
+ * Displays an SVG based visualization of budget utilization and summary
+ * numbers for income, budget and expenses.
+ */
 export function BudgetWheel({
   transactions,
   monthlyBudget = 5000,

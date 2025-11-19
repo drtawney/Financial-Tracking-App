@@ -1,3 +1,8 @@
+/**
+ * components/ui/tooltip.tsx
+ *
+ * Tooltip component using Radix UI primitives for displaying hover-triggered help text.
+ */
 "use client";
 
 import * as React from "react";
@@ -5,6 +10,11 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip@1.1.8";
 
 import { cn } from "./utils";
 
+/**
+ * TooltipProvider
+ *
+ * Provider for tooltip configuration (delay, etc).
+ */
 function TooltipProvider({
   delayDuration = 0,
   ...props
@@ -18,6 +28,11 @@ function TooltipProvider({
   );
 }
 
+/**
+ * Tooltip
+ *
+ * Root tooltip container.
+ */
 function Tooltip({
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Root>) {
@@ -28,12 +43,22 @@ function Tooltip({
   );
 }
 
+/**
+ * TooltipTrigger
+ *
+ * Element that triggers the tooltip to show.
+ */
 function TooltipTrigger({
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
   return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
 }
 
+/**
+ * TooltipContent
+ *
+ * Tooltip content that appears on hover.
+ */
 function TooltipContent({
   className,
   sideOffset = 0,

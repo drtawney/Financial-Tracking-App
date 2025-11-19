@@ -1,3 +1,8 @@
+/**
+ * components/ui/dialog.tsx
+ *
+ * Dialog component suite using Radix UI primitives for modals and overlays.
+ */
 "use client";
 
 import * as React from "react";
@@ -6,12 +11,22 @@ import { XIcon } from "lucide-react@0.487.0";
 
 import { cn } from "./utils";
 
+/**
+ * Dialog
+ *
+ * Root dialog container.
+ */
 function Dialog({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Root>) {
   return <DialogPrimitive.Root data-slot="dialog" {...props} />;
 }
 
+/**
+ * DialogTrigger
+ *
+ * Element that triggers the dialog to open.
+ */
 const DialogTrigger = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Trigger>
@@ -21,12 +36,22 @@ const DialogTrigger = React.forwardRef<
 
 DialogTrigger.displayName = "DialogTrigger";
 
+/**
+ * DialogPortal
+ *
+ * Portal for rendering dialog content outside the DOM tree.
+ */
 function DialogPortal({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Portal>) {
   return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
 }
 
+/**
+ * DialogClose
+ *
+ * Button to close the dialog.
+ */
 function DialogClose({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Close>) {
@@ -50,6 +75,11 @@ const DialogOverlay = React.forwardRef<
 
 DialogOverlay.displayName = "DialogOverlay";
 
+/**
+ * DialogContent
+ *
+ * Main content area of the dialog with overlay and close button.
+ */
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
@@ -76,6 +106,11 @@ const DialogContent = React.forwardRef<
 
 DialogContent.displayName = "DialogContent";
 
+/**
+ * DialogHeader
+ *
+ * Header section of the dialog, typically for titles.
+ */
 function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -86,6 +121,11 @@ function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * DialogFooter
+ *
+ * Footer section of the dialog, typically for actions.
+ */
 function DialogFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div

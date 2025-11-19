@@ -1,3 +1,8 @@
+/**
+ * components/ui/switch.tsx
+ *
+ * Switch (toggle) component using Radix UI primitives.
+ */
 "use client";
 
 import * as React from "react";
@@ -5,6 +10,11 @@ import * as SwitchPrimitive from "@radix-ui/react-switch@1.1.3";
 
 import { cn } from "./utils";
 
+/**
+ * Switch
+ *
+ * Toggle switch for binary on/off states.
+ */
 function Switch({
   className,
   ...props

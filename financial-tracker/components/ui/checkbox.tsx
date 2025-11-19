@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/checkbox.tsx
+ *
+ * Checkbox component using Radix UI primitives for form inputs.
+ */
 "use client";
 
 import * as React from "react";
@@ -6,6 +11,13 @@ import { CheckIcon } from "lucide-react";
 
 import { cn } from "./utils";
 
+/**
+ * Checkbox
+ *
+ * Styled checkbox control for binary selections.
+ * @param className - Optional class name
+ * @param props - Standard Radix Checkbox props
+ */
 function Checkbox({
   className,
   ...props

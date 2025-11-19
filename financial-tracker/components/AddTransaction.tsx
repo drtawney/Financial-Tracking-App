@@ -1,3 +1,10 @@
+/**
+ * financial-tracker/components/AddTransaction.tsx
+ *
+ * A form component used to create and submit new transactions. Supports
+ * income and expense types and warns when an expense will exceed the
+ * configured budget for a selected category.
+ */
 import { useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Input } from "./ui/input";
@@ -28,6 +35,15 @@ const DEFAULT_INCOME_CATEGORY = "Business Income";
 
 // Removed defaultExpenseCategories - only using budget categories for expenses
 
+/**
+ * AddTransaction
+ *
+ * Renders the transaction entry form and handles validation, budget checks,
+ * and submission.
+ * @param onAddTransaction - Callback to add a transaction to parent state
+ * @param transactions - List of existing transactions used for budget checks
+ * @param budgetCategories - List of budget categories for selection and limits
+ */
 export function AddTransaction({ onAddTransaction, transactions, budgetCategories }: AddTransactionProps) {
   const [formData, setFormData] = useState({
     description: "",
@@ -44,6 +60,14 @@ export function AddTransaction({ onAddTransaction, transactions, budgetCategorie
     budgetAmount: number;
   } | null>(null);
 
+  /**
+   * checkBudgetLimit
+   *
+   * Determine whether adding `amount` to the `category` for the given
+   * `transactionDate` month will exceed the configured budget for that category.
+   * Returns `true` if it would exceed the budget and sets state for the
+   * budget warning display.
+   */
   const checkBudgetLimit = (amount: number, category: string, transactionDate: string) => {
     if (!category || amount <= 0) return false;
 

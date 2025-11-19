@@ -1,3 +1,11 @@
+/**
+ * App.tsx
+ *
+ * Main application shell for the Financial Tracking App. This file composes
+ * the dashboard, transaction list, budget and inventory managers and
+ * coordinates application-level state such as transactions, budgets, and
+ * inventory items.
+ */
 import { useState } from "react";
 import { Dashboard } from "./components/Dashboard";
 import { BudgetWheel } from "./components/BudgetWheel";
@@ -117,6 +125,13 @@ export default function App() {
   const [businessName, setBusinessName] = useState('Financial Tracker');
   const [isEditingBusinessName, setIsEditingBusinessName] = useState(false);
 
+  /**
+   * handleAddTransaction
+   *
+   * Add a new transaction to the top of the transactions list and navigate
+   * back to the dashboard.
+   * @param newTransaction - transaction data without an `id` (id is generated)
+   */
   const handleAddTransaction = (newTransaction: Omit<Transaction, 'id'>) => {
     const transaction: Transaction = {
       ...newTransaction,
@@ -126,6 +141,12 @@ export default function App() {
     setActiveTab('dashboard'); // Navigate back to dashboard after adding
   };
 
+  /**
+   * handleDeleteTransaction
+   *
+   * Remove a transaction by `id` from the transactions state.
+   * @param id - id of the transaction to remove
+   */
   const handleDeleteTransaction = (id: string) => {
     setTransactions(prev => prev.filter(t => t.id !== id));
   };
@@ -143,6 +164,13 @@ export default function App() {
   const monthlyProfit = totalIncome - totalExpenses;
   const transactionCount = transactions.length;
 
+  /**
+   * renderTabContent
+   *
+   * Render content for the currently active tab.
+   * Returns JSX for dashboard, add transaction form, transactions list,
+   * budget manager, or inventory manager depending on `activeTab`.
+   */
   const renderTabContent = () => {
     switch (activeTab) {
       case 'dashboard':

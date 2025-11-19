@@ -1,3 +1,10 @@
+/**
+ * components/InventoryPreview.tsx
+ *
+ * Small preview card that surfaces recent inventory activity and quick
+ * stats such as total items, total value and profit. Used on the
+ * dashboard view for a concise snapshot.
+ */
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Package, TrendingUp, TrendingDown } from "lucide-react";
@@ -7,6 +14,12 @@ interface InventoryPreviewProps {
   inventoryItems: InventoryItem[];
 }
 
+/**
+ * InventoryPreview
+ *
+ * Renders a compact preview of recent inventory items and summary
+ * statistics. Does not mutate data; read-only display component.
+ */
 export function InventoryPreview({ inventoryItems }: InventoryPreviewProps) {
   // Sort by most recent changes (bought or sold date)
   const recentItems = inventoryItems

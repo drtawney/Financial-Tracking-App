@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/select.tsx
+ *
+ * Select dropdown component using Radix UI primitives.
+ */
 "use client";
 
 import * as React from "react";
@@ -10,24 +15,51 @@ import {
 
 import { cn } from "./utils";
 
+/**
+ * Select
+ *
+ * Root component for the select dropdown.
+ * @param props - Standard Radix Select Root props
+ */
 function Select({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Root>) {
   return <SelectPrimitive.Root data-slot="select" {...props} />;
 }
 
+/**
+ * SelectGroup
+ *
+ * Groups related select items.
+ * @param props - Standard Radix Select Group props
+ */
 function SelectGroup({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Group>) {
   return <SelectPrimitive.Group data-slot="select-group" {...props} />;
 }
 
+/**
+ * SelectValue
+ *
+ * Displays the selected value.
+ * @param props - Standard Radix Select Value props
+ */
 function SelectValue({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Value>) {
   return <SelectPrimitive.Value data-slot="select-value" {...props} />;
 }
 
+/**
+ * SelectTrigger
+ *
+ * Button that opens the select dropdown.
+ * @param className - Optional class name
+ * @param size - Size of the trigger ("sm" | "default")
+ * @param children - Trigger content
+ * @param props - Standard Radix Select Trigger props
+ */
 function SelectTrigger({
   className,
   size = "default",
@@ -54,6 +86,15 @@ function SelectTrigger({
   );
 }
 
+/**
+ * SelectContent
+ *
+ * Dropdown content for select options.
+ * @param className - Optional class name
+ * @param children - Content of the dropdown
+ * @param position - Positioning mode (default: "popper")
+ * @param props - Standard Radix Select Content props
+ */
 function SelectContent({
   className,
   children,
@@ -89,6 +130,13 @@ function SelectContent({
   );
 }
 
+/**
+ * SelectLabel
+ *
+ * Label for a group of select options.
+ * @param className - Optional class name
+ * @param props - Standard Radix Select Label props
+ */
 function SelectLabel({
   className,
   ...props
@@ -102,6 +150,14 @@ function SelectLabel({
   );
 }
 
+/**
+ * SelectItem
+ *
+ * Individual option in the select dropdown.
+ * @param className - Optional class name
+ * @param children - Option content
+ * @param props - Standard Radix Select Item props
+ */
 function SelectItem({
   className,
   children,
@@ -126,6 +182,13 @@ function SelectItem({
   );
 }
 
+/**
+ * SelectSeparator
+ *
+ * Visual separator between select options.
+ * @param className - Optional class name
+ * @param props - Standard Radix Select Separator props
+ */
 function SelectSeparator({
   className,
   ...props
@@ -139,6 +202,13 @@ function SelectSeparator({
   );
 }
 
+/**
+ * SelectScrollUpButton
+ *
+ * Button to scroll up in the select dropdown.
+ * @param className - Optional class name
+ * @param props - Standard Radix Select ScrollUpButton props
+ */
 function SelectScrollUpButton({
   className,
   ...props
@@ -157,6 +227,13 @@ function SelectScrollUpButton({
   );
 }
 
+/**
+ * SelectScrollDownButton
+ *
+ * Button to scroll down in the select dropdown.
+ * @param className - Optional class name
+ * @param props - Standard Radix Select ScrollDownButton props
+ */
 function SelectScrollDownButton({
   className,
   ...props

@@ -1,3 +1,8 @@
+/**
+ * components/ui/label.tsx
+ *
+ * Label component using Radix UI primitives for form inputs.
+ */
 "use client";
 
 import * as React from "react";
@@ -5,6 +10,11 @@ import * as LabelPrimitive from "@radix-ui/react-label@2.1.2";
 
 import { cn } from "./utils";
 
+/**
+ * Label
+ *
+ * Styled label for form inputs.
+ */
 function Label({
   className,
   ...props

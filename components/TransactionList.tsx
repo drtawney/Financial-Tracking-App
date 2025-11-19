@@ -1,3 +1,10 @@
+/**
+ * components/TransactionList.tsx
+ *
+ * Displays a list of transactions with optional controls for deleting and
+ * exporting. Provides a simple XML export via email and an optional
+ * per-transaction delete dialog.
+ */
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
@@ -31,6 +38,13 @@ export function TransactionList({
 }: TransactionListProps) {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState<string | null>(null);
 
+  /**
+   * handleExportTransactions
+   *
+   * Build a simple XML representation of the current `transactions` and
+   * open the user's mail client with the XML attached in the email body
+   * using a `mailto:` link.
+   */
   const handleExportTransactions = () => {
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <transactions_export>

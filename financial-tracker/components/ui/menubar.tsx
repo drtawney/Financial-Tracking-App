@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/menubar.tsx
+ *
+ * Menubar component using Radix UI primitives for application menus.
+ */
 "use client";
 
 import * as React from "react";
@@ -6,6 +11,13 @@ import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react";
 
 import { cn } from "./utils";
 
+/**
+ * Menubar
+ *
+ * Root container for the menubar.
+ * @param className - Optional class name
+ * @param props - Standard Radix Menubar Root props
+ */
 function Menubar({
   className,
   ...props
@@ -22,24 +34,48 @@ function Menubar({
   );
 }
 
+/**
+ * MenubarMenu
+ *
+ * Container for a single menu in the menubar.
+ * @param props - Standard Radix Menubar Menu props
+ */
 function MenubarMenu({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Menu>) {
   return <MenubarPrimitive.Menu data-slot="menubar-menu" {...props} />;
 }
 
+/**
+ * MenubarGroup
+ *
+ * Groups related menu items.
+ * @param props - Standard Radix Menubar Group props
+ */
 function MenubarGroup({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Group>) {
   return <MenubarPrimitive.Group data-slot="menubar-group" {...props} />;
 }
 
+/**
+ * MenubarPortal
+ *
+ * Portal for rendering menubar content outside the DOM hierarchy.
+ * @param props - Standard Radix Menubar Portal props
+ */
 function MenubarPortal({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Portal>) {
   return <MenubarPrimitive.Portal data-slot="menubar-portal" {...props} />;
 }
 
+/**
+ * MenubarRadioGroup
+ *
+ * Group for radio menu items.
+ * @param props - Standard Radix Menubar RadioGroup props
+ */
 function MenubarRadioGroup({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.RadioGroup>) {
@@ -48,6 +84,13 @@ function MenubarRadioGroup({
   );
 }
 
+/**
+ * MenubarTrigger
+ *
+ * Button to open a menu in the menubar.
+ * @param className - Optional class name
+ * @param props - Standard Radix Menubar Trigger props
+ */
 function MenubarTrigger({
   className,
   ...props
@@ -64,6 +107,16 @@ function MenubarTrigger({
   );
 }
 
+/**
+ * MenubarContent
+ *
+ * Dropdown content for a menubar menu.
+ * @param className - Optional class name
+ * @param align - Alignment of the menu
+ * @param alignOffset - Offset for alignment
+ * @param sideOffset - Offset for side positioning
+ * @param props - Standard Radix Menubar Content props
+ */
 function MenubarContent({
   className,
   align = "start",

@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/pagination.tsx
+ *
+ * Pagination component for navigating through pages of content.
+ */
 import * as React from "react";
 import {
   ChevronLeftIcon,
@@ -8,6 +13,13 @@ import {
 import { cn } from "./utils";
 import { Button, buttonVariants } from "./button";
 
+/**
+ * Pagination
+ *
+ * Root navigation container for pagination controls.
+ * @param className - Optional class name
+ * @param props - Standard nav props
+ */
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
     <nav
@@ -20,6 +32,13 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   );
 }
 
+/**
+ * PaginationContent
+ *
+ * Container for pagination items.
+ * @param className - Optional class name
+ * @param props - Standard ul props
+ */
 function PaginationContent({
   className,
   ...props
@@ -33,6 +52,12 @@ function PaginationContent({
   );
 }
 
+/**
+ * PaginationItem
+ *
+ * Individual pagination item (li).
+ * @param props - Standard li props
+ */
 function PaginationItem({ ...props }: React.ComponentProps<"li">) {
   return <li data-slot="pagination-item" {...props} />;
 }

@@ -1,3 +1,10 @@
+/**
+ * components/InventoryManager.tsx
+ *
+ * Inventory management UI allowing adding, editing, deleting and exporting
+ * inventory items. Tracks purchase/sale dates, status, prices and other
+ * metadata for each item.
+ */
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
@@ -29,6 +36,12 @@ interface InventoryManagerProps {
   onUpdateInventory: (items: InventoryItem[]) => void;
 }
 
+/**
+ * InventoryManager
+ *
+ * Component that renders inventory summary and a list of inventory items.
+ * Supports dialog-driven add/edit forms and XML export via email.
+ */
 export function InventoryManager({ inventoryItems, onUpdateInventory }: InventoryManagerProps) {
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false);
   const [editingItem, setEditingItem] = useState<InventoryItem | null>(null);

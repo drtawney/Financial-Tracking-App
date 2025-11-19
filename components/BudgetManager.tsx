@@ -1,3 +1,11 @@
+/**
+ * components/BudgetManager.tsx
+ *
+ * Budget manager view for listing, editing and creating budget categories.
+ * Shows monthly totals, progress bars per category and provides controls to
+ * add, edit, and delete categories. Uses `transactions` and `selectedMonth`
+ * to compute month-specific metrics.
+ */
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
@@ -35,6 +43,13 @@ const months = [
   "2026-07", "2026-08", "2026-09", "2026-10", "2026-11", "2026-12"
 ];
 
+/**
+ * BudgetManager
+ *
+ * Main component for budget management. Displays income targets and
+ * expense budgets for the selected month and allows CRUD operations on
+ * budget categories.
+ */
 export function BudgetManager({ 
   transactions, 
   selectedMonth, 

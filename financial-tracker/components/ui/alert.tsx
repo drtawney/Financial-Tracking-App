@@ -1,3 +1,8 @@
+/**
+ * components/ui/alert.tsx
+ *
+ * Alert component suite for displaying messages. Includes Alert, AlertTitle, AlertDescription.
+ */
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -19,6 +24,11 @@ const alertVariants = cva(
   },
 );
 
+/**
+ * Alert
+ *
+ * Main alert container for displaying messages.
+ */
 function Alert({
   className,
   variant,
@@ -34,6 +44,11 @@ function Alert({
   );
 }
 
+/**
+ * AlertTitle
+ *
+ * Title section of the alert.
+ */
 function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -47,6 +62,11 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * AlertDescription
+ *
+ * Description or body of the alert message.
+ */
 function AlertDescription({
   className,
   ...props

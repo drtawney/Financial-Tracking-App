@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/progress.tsx
+ *
+ * Progress bar component using Radix UI primitives.
+ */
 "use client";
 
 import * as React from "react";
@@ -5,6 +10,14 @@ import * as ProgressPrimitive from "@radix-ui/react-progress";
 
 import { cn } from "./utils";
 
+/**
+ * Progress
+ *
+ * Displays a linear progress bar with value indicator.
+ * @param className - Optional class name
+ * @param value - Progress value (0-100)
+ * @param props - Standard Radix Progress Root props
+ */
 function Progress({
   className,
   value,

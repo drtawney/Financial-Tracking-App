@@ -1,7 +1,17 @@
+/**
+ * components/ui/textarea.tsx
+ *
+ * Textarea component for multi-line text input.
+ */
 import * as React from "react";
 
 import { cn } from "./utils";
 
+/**
+ * Textarea
+ *
+ * Styled multi-line text input field.
+ */
 function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
   return (
     <textarea

@@ -1,3 +1,10 @@
+/**
+ * components/Dashboard.tsx
+ *
+ * Dashboard summary cards showing income, expenses, net profit and
+ * transaction counts. This component is a presentational aggregation of
+ * high-level metrics.
+ */
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { TrendingUp, TrendingDown, DollarSign, PieChart } from "lucide-react";
 
@@ -8,6 +15,11 @@ interface DashboardProps {
   transactionCount: number;
 }
 
+/**
+ * Dashboard
+ *
+ * Presentational component that displays top-level financial metrics.
+ */
 export function Dashboard({ totalIncome, totalExpenses, monthlyProfit, transactionCount }: DashboardProps) {
   const profitPercentage = totalIncome > 0 ? ((monthlyProfit / totalIncome) * 100).toFixed(1) : 0;
   const isProfitable = monthlyProfit >= 0;

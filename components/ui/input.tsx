@@ -1,7 +1,17 @@
+/**
+ * components/ui/input.tsx
+ *
+ * Input component with style merging for number fields to hide spinners. Uses utility for class names.
+ */
 import * as React from "react";
 
 import { cn } from "./utils";
 
+/**
+ * Input
+ *
+ * Styled input component that merges spinner-hiding styles for number fields and applies consistent classes.
+ */
 function Input({ className, type, style, ...props }: React.ComponentProps<"input">) {
   // Merge styles to hide number input spinners
   const inputStyle = type === "number" 

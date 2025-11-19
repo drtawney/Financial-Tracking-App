@@ -1,3 +1,9 @@
+/**
+ * financial-tracker/components/ui/form.tsx
+ *
+ * Form utility components for react-hook-form integration. Provides form context,
+ * field wrappers, and styled form elements.
+ */
 "use client";
 
 import * as React from "react";
@@ -16,6 +22,11 @@ import {
 import { cn } from "./utils";
 import { Label } from "./label";
 
+/**
+ * Form
+ *
+ * Re-export of FormProvider from react-hook-form for form state management.
+ */
 const Form = FormProvider;
 
 type FormFieldContextValue<
@@ -29,6 +40,12 @@ const FormFieldContext = React.createContext<FormFieldContextValue>(
   {} as FormFieldContextValue,
 );
 
+/**
+ * FormField
+ *
+ * Wrapper for react-hook-form Controller, providing field context.
+ * @param props - Controller props for the field
+ */
 const FormField = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
@@ -42,6 +59,11 @@ const FormField = <
   );
 };
 
+/**
+ * useFormField
+ *
+ * Hook to access the current form field state and context.
+ */
 const useFormField = () => {
   const fieldContext = React.useContext(FormFieldContext);
   const itemContext = React.useContext(FormItemContext);
@@ -73,6 +95,13 @@ const FormItemContext = React.createContext<FormItemContextValue>(
   {} as FormItemContextValue,
 );
 
+/**
+ * FormItem
+ *
+ * Container for a single form field.
+ * @param className - Optional class name
+ * @param props - Standard div element props
+ */
 function FormItem({ className, ...props }: React.ComponentProps<"div">) {
   const id = React.useId();
 

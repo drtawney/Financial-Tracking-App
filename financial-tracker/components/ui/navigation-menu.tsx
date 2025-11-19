@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/navigation-menu.tsx
+ *
+ * Navigation menu component using Radix UI primitives for site navigation.
+ */
 import * as React from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
@@ -5,6 +10,15 @@ import { ChevronDownIcon } from "lucide-react";
 
 import { cn } from "./utils";
 
+/**
+ * NavigationMenu
+ *
+ * Root container for the navigation menu.
+ * @param className - Optional class name
+ * @param children - Menu content
+ * @param viewport - Whether to show the viewport
+ * @param props - Standard Radix NavigationMenu Root props
+ */
 function NavigationMenu({
   className,
   children,
@@ -29,6 +43,13 @@ function NavigationMenu({
   );
 }
 
+/**
+ * NavigationMenuList
+ *
+ * List container for navigation menu items.
+ * @param className - Optional class name
+ * @param props - Standard Radix NavigationMenu List props
+ */
 function NavigationMenuList({
   className,
   ...props
@@ -45,6 +66,13 @@ function NavigationMenuList({
   );
 }
 
+/**
+ * NavigationMenuItem
+ *
+ * Individual item in the navigation menu.
+ * @param className - Optional class name
+ * @param props - Standard Radix NavigationMenu Item props
+ */
 function NavigationMenuItem({
   className,
   ...props

@@ -1,13 +1,28 @@
+/**
+ * components/ui/breadcrumb.tsx
+ *
+ * Breadcrumb component suite for navigation paths.
+ */
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot@1.1.2";
 import { ChevronRight, MoreHorizontal } from "lucide-react@0.487.0";
 
 import { cn } from "./utils";
 
+/**
+ * Breadcrumb
+ *
+ * Root breadcrumb navigation element.
+ */
 function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
   return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />;
 }
 
+/**
+ * BreadcrumbList
+ *
+ * Container for breadcrumb items.
+ */
 function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
   return (
     <ol
@@ -21,6 +36,11 @@ function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
   );
 }
 
+/**
+ * BreadcrumbItem
+ *
+ * Individual breadcrumb item.
+ */
 function BreadcrumbItem({ className, ...props }: React.ComponentProps<"li">) {
   return (
     <li
@@ -31,6 +51,11 @@ function BreadcrumbItem({ className, ...props }: React.ComponentProps<"li">) {
   );
 }
 
+/**
+ * BreadcrumbLink
+ *
+ * Breadcrumb link that can render as a link or custom element.
+ */
 function BreadcrumbLink({
   asChild,
   className,
@@ -49,6 +74,11 @@ function BreadcrumbLink({
   );
 }
 
+/**
+ * BreadcrumbPage
+ *
+ * Current page in the breadcrumb trail.
+ */
 function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
@@ -62,6 +92,11 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
   );
 }
 
+/**
+ * BreadcrumbSeparator
+ *
+ * Visual separator between breadcrumb items.
+ */
 function BreadcrumbSeparator({
   children,
   className,
@@ -80,6 +115,11 @@ function BreadcrumbSeparator({
   );
 }
 
+/**
+ * BreadcrumbEllipsis
+ *
+ * Collapsed breadcrumb items indicator.
+ */
 function BreadcrumbEllipsis({
   className,
   ...props

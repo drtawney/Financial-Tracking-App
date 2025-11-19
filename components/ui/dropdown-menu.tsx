@@ -1,3 +1,8 @@
+/**
+ * components/ui/dropdown-menu.tsx
+ *
+ * Dropdown menu component suite using Radix UI primitives.
+ */
 "use client";
 
 import * as React from "react";
@@ -6,12 +11,22 @@ import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react@0.487.0";
 
 import { cn } from "./utils";
 
+/**
+ * DropdownMenu
+ *
+ * Root dropdown menu container.
+ */
 function DropdownMenu({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
 }
 
+/**
+ * DropdownMenuPortal
+ *
+ * Portal for rendering dropdown content outside the DOM tree.
+ */
 function DropdownMenuPortal({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>) {
@@ -20,6 +35,11 @@ function DropdownMenuPortal({
   );
 }
 
+/**
+ * DropdownMenuTrigger
+ *
+ * Element that triggers the dropdown to open.
+ */
 function DropdownMenuTrigger({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {

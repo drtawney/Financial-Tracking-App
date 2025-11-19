@@ -1,3 +1,8 @@
+/**
+ * components/ui/checkbox.tsx
+ *
+ * Checkbox component using Radix UI primitives for form inputs.
+ */
 "use client";
 
 import * as React from "react";
@@ -6,6 +11,11 @@ import { CheckIcon } from "lucide-react@0.487.0";
 
 import { cn } from "./utils";
 
+/**
+ * Checkbox
+ *
+ * Styled checkbox control for binary selections.
+ */
 function Checkbox({
   className,
   ...props

@@ -1,3 +1,8 @@
+/**
+ * components/ui/slider.tsx
+ *
+ * Slider/range input component using Radix UI primitives.
+ */
 "use client";
 
 import * as React from "react";
@@ -5,6 +10,11 @@ import * as SliderPrimitive from "@radix-ui/react-slider@1.2.3";
 
 import { cn } from "./utils";
 
+/**
+ * Slider
+ *
+ * Horizontal or vertical range input control with one or more thumbs.
+ */
 function Slider({
   className,
   defaultValue,

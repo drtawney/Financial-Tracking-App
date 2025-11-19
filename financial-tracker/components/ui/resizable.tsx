@@ -1,3 +1,8 @@
+/**
+ * financial-tracker/components/ui/resizable.tsx
+ *
+ * Resizable panel group and handle components using react-resizable-panels.
+ */
 "use client";
 
 import * as React from "react";
@@ -6,6 +11,13 @@ import * as ResizablePrimitive from "react-resizable-panels@2.1.7";
 
 import { cn } from "./utils";
 
+/**
+ * ResizablePanelGroup
+ *
+ * Root container for a group of resizable panels.
+ * @param className - Optional class name
+ * @param props - Standard PanelGroup props
+ */
 function ResizablePanelGroup({
   className,
   ...props
@@ -22,12 +34,26 @@ function ResizablePanelGroup({
   );
 }
 
+/**
+ * ResizablePanel
+ *
+ * Individual resizable panel.
+ * @param props - Standard Panel props
+ */
 function ResizablePanel({
   ...props
 }: React.ComponentProps<typeof ResizablePrimitive.Panel>) {
   return <ResizablePrimitive.Panel data-slot="resizable-panel" {...props} />;
 }
 
+/**
+ * ResizableHandle
+ *
+ * Handle for resizing panels, optionally with a visible grip.
+ * @param withHandle - Whether to show the grip handle
+ * @param className - Optional class name
+ * @param props - Standard PanelResizeHandle props
+ */
 function ResizableHandle({
   withHandle,
   className,

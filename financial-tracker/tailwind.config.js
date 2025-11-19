@@ -1,3 +1,9 @@
+/**
+ * financial-tracker/tailwind.config.js
+ *
+ * Tailwind CSS configuration with extended color palette including
+ * CSS variables for theming, chart colors, and sidebar styling.
+ */
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [

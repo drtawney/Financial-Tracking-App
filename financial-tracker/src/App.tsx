@@ -1,3 +1,9 @@
+/**
+ * financial-tracker/src/App.tsx
+ *
+ * Main application component for the financial tracker. Composes dashboard,
+ * transaction management, budget manager, and inventory manager with tab-based navigation.
+ */
 import { useState } from "react";
 import { Dashboard } from "../components/Dashboard";
 import { BudgetWheel } from "../components/BudgetWheel";
@@ -131,6 +137,12 @@ const initialInventoryItems: InventoryItem[] = [
   }
 ];
 
+/**
+ * App
+ *
+ * Main application component that manages state for transactions, budget categories,
+ * and inventory items. Renders the appropriate tab content and navigation.
+ */
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [transactions, setTransactions] = useState<Transaction[]>(initialTransactions);
@@ -140,6 +152,13 @@ export default function App() {
   const [businessName, setBusinessName] = useState('Financial Tracker');
   const [isEditingBusinessName, setIsEditingBusinessName] = useState(false);
 
+  /**
+   * handleAddTransaction
+   *
+   * Adds a new transaction to the transactions list with a generated ID.
+   * Switches to the dashboard tab after adding.
+   * @param newTransaction - New transaction data without ID
+   */
   const handleAddTransaction = (newTransaction: Omit<Transaction, 'id'>) => {
     const transaction: Transaction = {
       ...newTransaction,
@@ -149,6 +168,12 @@ export default function App() {
     setActiveTab('dashboard');
   };
 
+  /**
+   * handleDeleteTransaction
+   *
+   * Removes a transaction from the transactions list by ID.
+   * @param id - ID of the transaction to delete
+   */
   const handleDeleteTransaction = (id: string) => {
     setTransactions(prev => prev.filter(t => t.id !== id));
   };
@@ -165,6 +190,12 @@ export default function App() {
   const monthlyProfit = totalIncome - totalExpenses;
   const transactionCount = transactions.length;
 
+  /**
+   * renderTabContent
+   *
+   * Returns the appropriate JSX content based on the active tab.
+   * @returns JSX element for the active tab's content
+   */
   const renderTabContent = () => {
     switch (activeTab) {
       case 'dashboard':

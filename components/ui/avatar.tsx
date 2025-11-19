@@ -1,3 +1,8 @@
+/**
+ * components/ui/avatar.tsx
+ *
+ * Avatar component using Radix UI primitives for displaying user images with fallback.
+ */
 "use client";
 
 import * as React from "react";
@@ -5,6 +10,11 @@ import * as AvatarPrimitive from "@radix-ui/react-avatar@1.1.3";
 
 import { cn } from "./utils";
 
+/**
+ * Avatar
+ *
+ * Root avatar container.
+ */
 function Avatar({
   className,
   ...props
@@ -21,6 +31,11 @@ function Avatar({
   );
 }
 
+/**
+ * AvatarImage
+ *
+ * Image element within the avatar.
+ */
 function AvatarImage({
   className,
   ...props
@@ -34,6 +49,11 @@ function AvatarImage({
   );
 }
 
+/**
+ * AvatarFallback
+ *
+ * Fallback content shown when avatar image fails to load.
+ */
 function AvatarFallback({
   className,
   ...props
